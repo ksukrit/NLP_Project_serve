@@ -59,12 +59,14 @@ function readTextFile(file, callback) {
 }
 
 function updateProgress (oEvent) {
+  console.log(oEvent.loaded);
+	/*
   if (oEvent.lengthComputable) {
     var percentComplete = oEvent.loaded / oEvent.total * 100;
     $('.progress-bar').css('width', percentComplete+'%').attr('aria-valuenow', percentComplete);
   } else {
     console.log("Error Loading Dictionary");
-  }
+  } */
 }
 
 
