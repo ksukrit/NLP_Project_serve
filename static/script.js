@@ -60,8 +60,8 @@ function readTextFile(file, callback) {
 
 function updateProgress (oEvent) {
   var totalDictSize = 4240288;
-  console.log(oEvent.loaded);
-  var percentComplete = oEvent.loaded / oEvent.total * 100;
+  var percentComplete = oEvent.loaded / totalDictSize * 100;
+  console.log(percentComplete);
   $('.progress-bar').css('width', percentComplete+'%').attr('aria-valuenow', percentComplete);
 }
 
