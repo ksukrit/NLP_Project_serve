@@ -49,6 +49,7 @@ function readTextFile(file, callback) {
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
     rawFile.open("GET", file, true);
+    rawFile.addEventListener("progress", updateProgress);
     rawFile.onreadystatechange = function() {
         if (rawFile.readyState === 4 && rawFile.status == "200") {
             callback(rawFile.responseText);
@@ -56,6 +57,16 @@ function readTextFile(file, callback) {
     }
     rawFile.send(null);
 }
+
+function updateProgress (oEvent) {
+  if (oEvent.lengthComputable) {
+    var percentComplete = oEvent.loaded / oEvent.total * 100;
+    $('.progress-bar').css('width', percentComplete+'%').attr('aria-valuenow', percentComplete);
+  } else {
+    console.log("Error Loading Dictionary");
+  }
+}
+
 
 
 $(document).ready(function(){
