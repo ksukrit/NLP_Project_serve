@@ -59,14 +59,10 @@ function readTextFile(file, callback) {
 }
 
 function updateProgress (oEvent) {
+  var totalDictSize = 4240288;
   console.log(oEvent.loaded);
-	/*
-  if (oEvent.lengthComputable) {
-    var percentComplete = oEvent.loaded / oEvent.total * 100;
-    $('.progress-bar').css('width', percentComplete+'%').attr('aria-valuenow', percentComplete);
-  } else {
-    console.log("Error Loading Dictionary");
-  } */
+  var percentComplete = oEvent.loaded / oEvent.total * 100;
+  $('.progress-bar').css('width', percentComplete+'%').attr('aria-valuenow', percentComplete);
 }
 
 
